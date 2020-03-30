@@ -1,0 +1,6 @@
+rootProject.name='MelliChallenge'
+include ':app'
+include ':entities'
+include ':usecases'
+include ':data'
+include ':core'
