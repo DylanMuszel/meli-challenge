@@ -6,6 +6,7 @@ import com.dylanmuszel.core.fp.ServerFailure
 import com.dylanmuszel.domain.Product
 import com.dylanmuszel.melichallenge.CoroutineTestRule
 import com.dylanmuszel.melichallenge.framework.core.Logger
+import com.dylanmuszel.melichallenge.presentation.model.mapper.toProductUI
 import com.dylanmuszel.melichallenge.presentation.productlist.ProductListPresenter
 import com.dylanmuszel.melichallenge.presentation.productlist.ProductListView
 import com.dylanmuszel.usecases.product.SearchProductsUseCase
@@ -17,10 +18,8 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.mockito.ArgumentMatchers
 import org.mockito.Mockito.anyString
 import org.mockito.Mockito.inOrder
-import java.lang.Exception
 
 
 class ProductListPresenterTest {
@@ -48,7 +47,7 @@ class ProductListPresenterTest {
 
         // GIVEN
         val query = "query"
-        val products = listOf<Product>(mock(), mock(), mock())
+        val products = listOf(mockProduct(), mockProduct(), mockProduct())
         whenever(searchProductsUseCase(eq(query))).thenReturn(Either.right(products))
 
         // WHEN
@@ -58,7 +57,7 @@ class ProductListPresenterTest {
         with(inOrder(view)) {
             verify(view).toggleLoadingVisibility(eq(true))
             verify(view).setSearchingQueryTitle(eq(query))
-            verify(view).showProducts(eq(products))
+            verify(view).showProducts(eq(products.map { it.toProductUI() }))
             verify(view).toggleLoadingVisibility(false)
         }
     }
@@ -121,5 +120,11 @@ class ProductListPresenterTest {
             verify(view).showUnexpectedError()
             verify(view).toggleLoadingVisibility(false)
         }
+    }
+
+    private fun mockProduct() = mock<Product>().apply {
+        whenever(title).thenReturn("title")
+        whenever(price).thenReturn(800f)
+        whenever(thumbnail).thenReturn("thumbnail")
     }
 }
