@@ -17,7 +17,6 @@ class SearchFragment private constructor(): BaseFragment<FragmentSearchBinding, 
         FragmentSearchBinding::inflate
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        Log.d("DylanLog", "on view created")
         binding.searchButton.setOnClickListener {
             presenter.onSearchButtonClicked(binding.searchInput.text.toString())
         }
