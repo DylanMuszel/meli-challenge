@@ -5,12 +5,14 @@ import com.dylanmuszel.core.fp.Failure
 import com.dylanmuszel.core.fp.NetworkConnectionFailure
 import com.dylanmuszel.core.fp.ServerFailure
 import com.dylanmuszel.domain.Product
+import com.dylanmuszel.melichallenge.framework.core.Logger
 import com.dylanmuszel.melichallenge.presentation.core.BasePresenter
 import com.dylanmuszel.usecases.product.SearchProductsUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class ProductListPresenter @Inject constructor(
+    private val logger: Logger,
     private val searchProductsUseCase: SearchProductsUseCase
 ) : BasePresenter<ProductListView>() {
 
@@ -31,7 +33,7 @@ class ProductListPresenter @Inject constructor(
         when (failure) {
             NetworkConnectionFailure -> view?.showNetworkConnectionError()
             is ServerFailure -> {
-                Log.e(TAG, "Error while searching $query", failure.exception)
+                logger.e(TAG, "Error while searching $query", failure.exception)
                 view?.showUnexpectedError()
             }
         }

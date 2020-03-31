@@ -64,13 +64,18 @@ class ProductListFragment : BaseFragment<FragmentProductListBinding, ProductList
 
     override fun showNoProductsError() = showError(R.drawable.ic_search, R.string.no_products_found)
 
-    override fun showProducts(products: List<Product>) = productListAdapter.setProducts(products)
+    override fun showProducts(products: List<Product>) {
+        productListAdapter.setProducts(products)
+        binding.productListRecycler.isVisible = true
+        binding.error.isVisible = false
+    }
 
     override fun goToSearch() = startActivity(SearchActivity.getStarterIntent(requireContext()))
 
     private fun showError(@DrawableRes imageRes: Int, @StringRes textRes: Int) = with(binding) {
         errorImage.setImageResource(imageRes)
         errorText.setText(textRes)
+        productListRecycler.isVisible = false
         error.isVisible = true
     }
 
