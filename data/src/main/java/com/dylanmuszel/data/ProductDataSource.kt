@@ -5,7 +5,7 @@ import com.dylanmuszel.core.fp.Failure
 import com.dylanmuszel.domain.Product
 
 /**
- * Data source for the products.
+ * Data source of the products.
  */
 interface ProductDataSource {
 
