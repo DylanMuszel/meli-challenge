@@ -1,5 +1,6 @@
 package com.dylanmuszel.melichallenge.framework.product
 
+import com.dylanmuszel.data.ProductDataSource
 import com.dylanmuszel.melichallenge.framework.core.network.ApiInstance
 import com.dylanmuszel.melichallenge.framework.core.network.ConnectivityInfo
 import dagger.Module
@@ -17,5 +18,5 @@ object ProductModule {
     fun provideDataSource(
         connectivityInfo: ConnectivityInfo,
         productService: ProductService
-    ) =  ProductNetworkDataSource(connectivityInfo, productService)
+    ): ProductDataSource = ProductNetworkDataSource(connectivityInfo, productService)
 }

@@ -41,6 +41,6 @@ class ApiInstance @Inject constructor() {
 
     companion object {
         private const val SITE_ID = "MLA"
-        private const val BASE_URL = " https://api.mercadolibre.com/sites/$SITE_ID/"
+        private const val BASE_URL = "https://api.mercadolibre.com/sites/$SITE_ID/"
     }
 }

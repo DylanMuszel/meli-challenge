@@ -1,4 +1,4 @@
-package com.dylanmuszel.melichallenge.presentation.core.di
+package com.dylanmuszel.melichallenge.di
 
 import android.app.Application
 import com.dylanmuszel.melichallenge.MeliChallengeApp

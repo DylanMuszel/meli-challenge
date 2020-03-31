@@ -11,6 +11,6 @@ import retrofit2.http.Query
 interface ProductService {
 
     /** Searches products by a given [query] and returns a [NetworkResponse] containing a [Product] [List]. */
-    @GET("/search")
+    @GET("search")
     suspend fun search(@Query("q") query: String): NetworkResponse<List<Product>>
 }

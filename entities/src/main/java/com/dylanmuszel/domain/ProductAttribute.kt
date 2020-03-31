@@ -7,6 +7,5 @@ data class ProductAttribute(
     val id: String,
     val valueId: String,
     val valueName: String,
-    val source: Int,
     val name: String
 )

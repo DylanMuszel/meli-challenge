@@ -13,7 +13,7 @@ object NetworkConnection : Failure()
  *
  * It could be extended in case of an expected server error.
  */
-open class ServerError(exception: Exception) : Failure()
+open class ServerError(val exception: Exception) : Failure()
 
 /** Failure to be extended for feature specific failures. */
 abstract class FeatureFailure : Failure()
