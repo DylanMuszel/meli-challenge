@@ -70,7 +70,14 @@ dependencies {
     implementation project(':data')
     implementation project(':entities')
 
-    testImplementation testingLibraries.androidx.test.core
+    testImplementation testingLibraries.androidx.core
     testImplementation testingLibraries.junit
-    testImplementation testingLibraries.mockitoKotlin
+    testImplementation testingLibraries.mockito.kotlin
+
+    androidTestImplementation testingLibraries.androidx.runner
+    androidTestImplementation testingLibraries.androidx.rules
+    debugImplementation testingLibraries.androidx.fragment
+    androidTestImplementation testingLibraries.espresso
+    androidTestImplementation testingLibraries.junit
+    androidTestImplementation testingLibraries.hamcrest
 }
