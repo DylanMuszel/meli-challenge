@@ -1,12 +1,12 @@
 package com.dylanmuszel.melichallenge.presentation.productlist
 
-import android.util.Log
 import com.dylanmuszel.core.fp.Failure
 import com.dylanmuszel.core.fp.NetworkConnectionFailure
 import com.dylanmuszel.core.fp.ServerFailure
 import com.dylanmuszel.domain.Product
 import com.dylanmuszel.melichallenge.framework.core.Logger
 import com.dylanmuszel.melichallenge.presentation.core.BasePresenter
+import com.dylanmuszel.melichallenge.presentation.model.mapper.toProductUI
 import com.dylanmuszel.usecases.product.SearchProductsUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -41,7 +41,7 @@ class ProductListPresenter @Inject constructor(
 
     private fun handleSearchSuccess(products: List<Product>) = view?.run {
         if (products.isNotEmpty()) {
-            showProducts(products)
+            showProducts(products.map { it.toProductUI() })
         } else {
             showNoProductsError()
         }

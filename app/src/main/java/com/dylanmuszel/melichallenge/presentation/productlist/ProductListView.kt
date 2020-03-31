@@ -1,6 +1,6 @@
 package com.dylanmuszel.melichallenge.presentation.productlist
 
-import com.dylanmuszel.domain.Product
+import com.dylanmuszel.melichallenge.presentation.model.ProductUI
 
 interface ProductListView {
 
@@ -20,7 +20,7 @@ interface ProductListView {
     fun showNoProductsError()
 
     /** Show the [products] retrieved. */
-    fun showProducts(products: List<Product>)
+    fun showProducts(products: List<ProductUI>)
 
     /** Open the search view to start a new one. */
     fun goToSearch()
