@@ -6,6 +6,6 @@ import com.dylanmuszel.melichallenge.presentation.core.BaseActivity
 
 class SearchActivity : BaseActivity(SearchFragment.newInstance()) {
 
-    /** Returns a intent to start [SearchActivity]. */
+    /** Returns an intent to start [SearchActivity]. */
     fun getStarterIntent(context: Context) = Intent(context, SearchActivity::class.java)
 }
