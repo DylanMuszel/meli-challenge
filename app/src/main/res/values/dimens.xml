@@ -31,6 +31,9 @@
     <dimen name="font_big">22sp</dimen>
     <dimen name="font_huge">24sp</dimen>
 
+    <!-- Toolbar -->
+    <dimen name="toolbar_search_size">40dp</dimen>
+
     <!-- Search -->
     <dimen name="search_logo_size">60dp</dimen>
     <dimen name="search_header_elevation">10dp</dimen>
