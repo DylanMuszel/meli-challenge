@@ -69,4 +69,8 @@ dependencies {
     implementation project(':usecases')
     implementation project(':data')
     implementation project(':entities')
+
+    testImplementation testingLibraries.androidx.test.core
+    testImplementation testingLibraries.junit
+    testImplementation testingLibraries.mockitoKotlin
 }

@@ -13,7 +13,7 @@ ext {
                     constraintLayout: '1.1.3',
                     recyclerView    : '1.1.0'
             ],
-            material: '1.1.0',
+            material  : '1.1.0',
             arrow     : [
                     core: '0.10.4'
             ],
@@ -44,7 +44,7 @@ ext {
                     recyclerView    : "androidx.recyclerview:recyclerview:$versions.androidx.recyclerView"
 
             ],
-            material: "com.google.android.material:material:$versions.material",
+            material  : "com.google.android.material:material:$versions.material",
             arrow     : [
                     core: "io.arrow-kt:arrow-core:$versions.arrow.core"
             ],
@@ -63,5 +63,25 @@ ext {
                     core         : "com.squareup.retrofit2:retrofit:$versions.retrofit.core",
                     converterGson: "com.squareup.retrofit2:converter-gson:$versions.retrofit.converterGson"
             ],
+    ]
+
+    testingVersions = [
+            androidx     : [
+                    test: [
+                            core: '1.0.0'
+                    ]
+            ],
+            junit        : '4.12',
+            mockitoKotlin: '2.2.0'
+    ]
+
+    testingLibraries = [
+            androidx     : [
+                    test: [
+                            core: "androidx.test:core:$testingVersions.androidx.test.core"
+                    ]
+            ],
+            junit        : "junit:junit:$testingVersions.junit",
+            mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$testingVersions.mockitoKotlin"
     ]
 }
