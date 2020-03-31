@@ -1,3 +1,4 @@
 package com.dylanmuszel.melichallenge.framework.core.network
 
-data class NetworkResponse <T>(val results: T)
+/** A wrapper of the [T] result representing the network response. */
+data class NetworkResponse<T>(val results: T)
