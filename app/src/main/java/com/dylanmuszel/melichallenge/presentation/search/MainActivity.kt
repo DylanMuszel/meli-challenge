@@ -1,4 +1,4 @@
-package com.dylanmuszel.melichallenge.presentation.main
+package com.dylanmuszel.melichallenge.presentation.search
 
 import dagger.android.support.DaggerAppCompatActivity
 
