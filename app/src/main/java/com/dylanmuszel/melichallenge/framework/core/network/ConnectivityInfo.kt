@@ -13,6 +13,7 @@ import javax.inject.Named
 class ConnectivityInfo @Inject constructor(@Named("applicationContext") private val context: Context) {
 
     /** Returns true if the device is online, false otherwise. */
+    @Suppress("DEPRECATION")
     val isOnline
         get(): Boolean {
             val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

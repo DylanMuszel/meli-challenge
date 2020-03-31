@@ -1,4 +1,4 @@
-rootProject.name='MelliChallenge'
+rootProject.name='MeliChallenge'
 include ':app'
 include ':entities'
 include ':usecases'

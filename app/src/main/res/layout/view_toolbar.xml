@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:background="@color/colorPrimary"
     tools:layout_height="wrap_content"
@@ -8,18 +9,29 @@
     tools:paddingEnd="@dimen/fragment_padding"
     tools:paddingStart="@dimen/fragment_padding"
     tools:paddingTop="@dimen/spacing_medium_more"
-    tools:parentTag="android.widget.FrameLayout">
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/search_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/search_button"
         style="@style/SelectableItemPrimaryBackgroundBorderless"
         android:layout_width="@dimen/toolbar_search_size"
         android:layout_height="@dimen/toolbar_search_size"
-        android:layout_gravity="center_vertical|end"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/search_button"
         android:padding="@dimen/spacing_medium_more"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_search" />
+        android:src="@drawable/ic_search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </merge>

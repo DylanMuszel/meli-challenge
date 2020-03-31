@@ -6,4 +6,5 @@
 	<color name="colorBackground">#ededed</color>
 
 	<color name="white">#FFF</color>
+	<color name="gray">#929292</color>
 </resources>

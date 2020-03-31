@@ -65,4 +65,8 @@ abstract class BaseFragment<T : ViewBinding, P : BasePresenter<*>> : DaggerFragm
         super.onDestroy()
         fragmentHandler.onDestroy()
     }
+
+    /** Getting an argument asserting it's instantiated and it's not null. **/
+    @Suppress("UNCHECKED_CAST")
+    protected fun <U> requireArgument(key: String): U = arguments!!.get(key) as U
 }
