@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/logo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:elevation="@dimen/search_header_elevation"
+        app:layout_constraintBottom_toTopOf="@id/search_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/search_logo_size"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/spacing_big"
+            android:layout_marginBottom="@dimen/spacing_big"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/logo" />
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/search_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/fragment_padding"
+        android:layout_marginTop="@dimen/spacing_big"
+        android:layout_marginEnd="@dimen/fragment_padding"
+        android:hint="@string/search_input"
+        android:inputType="text"
+        android:maxLines="1"
+        app:layout_constraintBottom_toTopOf="@id/search_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <Button
+        android:id="@+id/search_button"
+        style="@style/PrimaryButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/search_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/search_input"
+        app:layout_constraintStart_toStartOf="@id/search_input"
+        app:layout_constraintTop_toBottomOf="@id/search_input" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

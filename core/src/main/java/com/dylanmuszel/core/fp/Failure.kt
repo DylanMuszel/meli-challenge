@@ -1,9 +1,19 @@
 package com.dylanmuszel.core.fp
 
-sealed class Failure {
-    object NetworkConnection : Failure()
-    object ServerError : Failure()
+import java.lang.Exception
 
-    /** * Extend this class for feature specific failures.*/
-    abstract class FeatureFailure: Failure()
-}
+
+sealed class Failure
+
+/** Failure to return when the device is offline. */
+object NetworkConnection : Failure()
+
+/**
+ * Failure to return when the server returns an unexpected error.
+ *
+ * It could be extended in case of an expected server error.
+ */
+open class ServerError(val exception: Exception) : Failure()
+
+/** Failure to be extended for feature specific failures. */
+abstract class FeatureFailure : Failure()

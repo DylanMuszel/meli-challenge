@@ -13,6 +13,7 @@ ext {
                     constraintLayout: '1.1.3',
                     recyclerView    : '1.1.0'
             ],
+            material: '1.1.0',
             arrow     : [
                     core: '0.10.4'
             ],
@@ -43,6 +44,7 @@ ext {
                     recyclerView    : "androidx.recyclerview:recyclerview:$versions.androidx.recyclerView"
 
             ],
+            material: "com.google.android.material:material:$versions.material",
             arrow     : [
                     core: "io.arrow-kt:arrow-core:$versions.arrow.core"
             ],

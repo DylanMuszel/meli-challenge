@@ -40,6 +40,7 @@ class ApiInstance @Inject constructor() {
     fun <T> getService(clazz: Class<T>): T = retrofit.create(clazz)
 
     companion object {
-        private const val BASE_URL = ""
+        private const val SITE_ID = "MLA"
+        private const val BASE_URL = "https://api.mercadolibre.com/sites/$SITE_ID/"
     }
 }
