@@ -1,7 +1,5 @@
 package com.dylanmuszel.melichallenge.framework.product
 
-import android.net.Network
-import arrow.core.Either
 import arrow.core.orNull
 import com.dylanmuszel.core.fp.NetworkConnectionFailure
 import com.dylanmuszel.core.fp.ServerFailure
@@ -21,9 +19,9 @@ import retrofit2.HttpException
 
 class ProductNetworkDataSourceTest {
 
-    lateinit var connectivityInfo: ConnectivityInfo
-    lateinit var productService: ProductService
-    lateinit var productNetworkDataSource: ProductNetworkDataSource
+    private lateinit var connectivityInfo: ConnectivityInfo
+    private lateinit var productService: ProductService
+    private lateinit var productNetworkDataSource: ProductNetworkDataSource
 
     @Before
     fun setup() {
