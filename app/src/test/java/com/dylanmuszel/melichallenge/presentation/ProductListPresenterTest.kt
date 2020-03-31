@@ -21,7 +21,6 @@ import org.junit.Test
 import org.mockito.Mockito.anyString
 import org.mockito.Mockito.inOrder
 
-
 class ProductListPresenterTest {
 
     @get:Rule
