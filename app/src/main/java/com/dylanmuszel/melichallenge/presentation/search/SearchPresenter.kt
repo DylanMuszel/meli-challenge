@@ -14,6 +14,7 @@ import javax.inject.Inject
 class SearchPresenter @Inject constructor(private val searchProductsUseCase: SearchProductsUseCase) :
     BasePresenter<SearchView>() {
 
+    /** Invoked when the search button is clicked. */
     fun onSearchButtonClicked(query: String) = launch {
         searchProductsUseCase(query).fold(::handleFailure, ::handleSuccess)
     }

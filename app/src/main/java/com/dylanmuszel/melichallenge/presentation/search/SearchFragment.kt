@@ -39,6 +39,8 @@ class SearchFragment private constructor(): BaseFragment<FragmentSearchBinding, 
     }
 
     companion object {
+
+        /** Returns a new instance of the [SearchFragment]. */
         fun newInstance() = SearchFragment()
     }
 }
