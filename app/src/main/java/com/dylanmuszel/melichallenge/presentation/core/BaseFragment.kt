@@ -1,6 +1,7 @@
 package com.dylanmuszel.melichallenge.presentation.core
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -54,6 +55,14 @@ abstract class BaseFragment<T : ViewBinding, P : BasePresenter<*>> : DaggerFragm
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUI()
+        if (savedInstanceState == null) {
+            init()
+        }
+    }
+
     @CallSuper
     override fun onDestroyView() {
         super.onDestroyView()
@@ -65,4 +74,14 @@ abstract class BaseFragment<T : ViewBinding, P : BasePresenter<*>> : DaggerFragm
         super.onDestroy()
         fragmentHandler.onDestroy()
     }
+
+    /** Init the view. It's invoked on the first time the view is shown. */
+    open fun init() {}
+
+    /** Set the UI view and listeners. It's invoked on every time the view is recreated. */
+    open fun setUI() {}
+
+    /** Getting an argument asserting it's instantiated and it's not null. **/
+    @Suppress("UNCHECKED_CAST")
+    protected fun <U> requireArgument(key: String): U = requireArguments().get(key) as U
 }

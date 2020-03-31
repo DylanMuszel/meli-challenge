@@ -18,6 +18,7 @@ import javax.inject.Singleton
 interface AppComponent : AndroidInjector<MeliChallengeApp> {
 
     @Component.Builder
+    @Suppress("DEPRECATION")
     abstract class Builder : AndroidInjector.Builder<MeliChallengeApp>() {
 
         @BindsInstance

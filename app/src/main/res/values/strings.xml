@@ -7,4 +7,8 @@
     <string name="search_button">Buscar en Mercado Libre</string>
     <string name="search_input">Ejemplo: Harry Potter 3</string>
     <string name="search_empty_error">Ingresá una busqueda</string>
+
+    <!-- Product list -->
+    <string name="product_list_title">Buscando \"%s\"</string>
+    <string name="no_products_found">No encontramos publicaciones para la busqueda realizada</string>
 </resources>

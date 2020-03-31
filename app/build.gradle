@@ -51,6 +51,7 @@ dependencies {
     implementation libraries.androidx.ktx.core
     implementation libraries.androidx.ktx.fragment
     implementation libraries.material
+    implementation libraries.fresco
 
     implementation libraries.gson
 

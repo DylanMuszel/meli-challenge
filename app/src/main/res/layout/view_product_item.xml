@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?selectableItemBackgroundBorderless"
+    android:paddingStart="@dimen/fragment_padding"
+    android:paddingTop="@dimen/spacing_medium_extra"
+    android:paddingEnd="@dimen/fragment_padding"
+    android:paddingBottom="@dimen/spacing_medium_extra">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/image_view"
+        android:layout_width="@dimen/product_item_image_size"
+        android:layout_height="@dimen/product_item_image_size"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_large_extra"
+        android:maxLines="3"
+        app:layout_constraintBottom_toTopOf="@id/price_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/image_view"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Product name" />
+
+    <TextView
+        android:id="@+id/price_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font_large"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/title_text"
+        app:layout_constraintTop_toBottomOf="@id/title_text"
+        tools:text="$ 2.860" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
