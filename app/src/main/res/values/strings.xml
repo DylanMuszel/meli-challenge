@@ -10,5 +10,5 @@
 
     <!-- Product list -->
     <string name="product_list_title">Buscando \"%s\"</string>
-    <string name="no_products_found">No encontramos publicaciones para la busqueda realizada</string>
+    <string name="product_list_empty_error">No encontramos publicaciones para la busqueda realizada</string>
 </resources>

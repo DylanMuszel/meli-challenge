@@ -51,7 +51,7 @@
         android:importantForAccessibility="no"
         android:padding="@dimen/product_list_error_image_padding"
         android:scaleType="fitCenter"
-        android:tint="@color/colorBackground"
+        android:tint="@color/white"
         app:layout_constraintBottom_toTopOf="@id/error_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

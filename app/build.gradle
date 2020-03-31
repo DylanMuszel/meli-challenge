@@ -71,6 +71,7 @@ dependencies {
     implementation project(':data')
     implementation project(':entities')
 
+    testImplementation testingLibraries.kotlin.coroutines
     testImplementation testingLibraries.androidx.core
     testImplementation testingLibraries.junit
     testImplementation testingLibraries.mockito.kotlin
