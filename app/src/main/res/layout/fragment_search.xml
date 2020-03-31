@@ -4,36 +4,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <View
+    <FrameLayout
+        android:id="@+id/logo"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         android:elevation="@dimen/search_header_elevation"
-        app:layout_constraintBottom_toBottomOf="@id/logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/logo" />
-
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="@dimen/search_logo_size"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/app_name"
-        android:elevation="10dp"
-        android:src="@drawable/logo"
         app:layout_constraintBottom_toTopOf="@id/search_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/search_logo_size"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/spacing_big"
+            android:layout_marginBottom="@dimen/spacing_big"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/logo" />
+    </FrameLayout>
 
     <EditText
         android:id="@+id/search_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/fragment_padding"
-        android:layout_marginTop="@dimen/spacing_huge_extra"
+        android:layout_marginTop="@dimen/spacing_big"
         android:layout_marginEnd="@dimen/fragment_padding"
         android:hint="@string/search_input"
         android:inputType="text"
