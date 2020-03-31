@@ -9,8 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dylanmuszel.domain.Product
 import com.dylanmuszel.melichallenge.R
 import com.facebook.drawee.view.SimpleDraweeView
+import java.text.NumberFormat
 
-class ProductListAdapter(val list: MutableList<Product>) : RecyclerView.Adapter<ProductListAdapter.ProductListViewHolder>() {
+/**
+ * A [RecyclerView.Adapter] implementation holding a list of [Product]s.
+ */
+class ProductListAdapter : RecyclerView.Adapter<ProductListAdapter.ProductListViewHolder>() {
+
+    private val list = mutableListOf<Product>()
 
     override fun getItemCount() = list.size
 
@@ -22,16 +28,27 @@ class ProductListAdapter(val list: MutableList<Product>) : RecyclerView.Adapter<
         holder.bind(list[position])
     }
 
+    /** Set a list of [products] after cleaning the old ones. */
+    fun setProducts(products: List<Product>) {
+        list.clear()
+        list.addAll(products)
+        notifyDataSetChanged()
+    }
+
+    /**
+     * A [RecyclerView.ViewHolder] implementation holding a product item view.
+     */
     inner class ProductListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private val imageView = itemView.findViewById<SimpleDraweeView>(R.id.image_view)
         private val titleText = itemView.findViewById<TextView>(R.id.title_text)
         private val priceText = itemView.findViewById<TextView>(R.id.price_text)
 
+        /** Binds a [product] into a row. */
         fun bind(product: Product) = with(product) {
             imageView.setImageURI(thumbnail.toUri())
             titleText.text = title
-            priceText.text = price.toString()
+            priceText.text = NumberFormat.getCurrencyInstance().format(price)
         }
     }
 }

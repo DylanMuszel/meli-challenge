@@ -17,8 +17,7 @@ import com.dylanmuszel.melichallenge.presentation.search.SearchActivity
 
 class ProductListFragment : BaseFragment<FragmentProductListBinding, ProductListPresenter>(), ProductListView {
 
-    private val productList = mutableListOf<Product>()
-    private val productListAdapter = ProductListAdapter(productList)
+    private val productListAdapter = ProductListAdapter()
 
     override val inflate: (inflater: LayoutInflater, container: ViewGroup?, attachToRoot: Boolean) -> FragmentProductListBinding =
         FragmentProductListBinding::inflate
@@ -46,11 +45,7 @@ class ProductListFragment : BaseFragment<FragmentProductListBinding, ProductList
 
     override fun showNoProductsError() = showError(R.drawable.ic_search, R.string.no_products_found)
 
-    override fun showProducts(products: List<Product>) {
-        productList.clear()
-        productList.addAll(products)
-        productListAdapter.notifyDataSetChanged()
-    }
+    override fun showProducts(products: List<Product>) = productListAdapter.setProducts(products)
 
     override fun goToSearch() = startActivity(SearchActivity.getStarterIntent(requireContext()))
 
