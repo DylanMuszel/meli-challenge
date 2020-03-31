@@ -1,8 +1,6 @@
 package com.dylanmuszel.melichallenge.presentation.search
 
-import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import com.dylanmuszel.melichallenge.R
 import com.dylanmuszel.melichallenge.databinding.FragmentSearchBinding
@@ -14,7 +12,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchPresenter>(), S
     override val inflate: (inflater: LayoutInflater, container: ViewGroup?, attachToRoot: Boolean) -> FragmentSearchBinding =
         FragmentSearchBinding::inflate
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun setUI() {
         binding.searchButton.setOnClickListener {
             presenter.onSearchButtonClicked(binding.searchInput.text.toString())
         }

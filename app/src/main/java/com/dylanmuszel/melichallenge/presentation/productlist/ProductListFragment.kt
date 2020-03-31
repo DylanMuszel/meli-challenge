@@ -1,6 +1,7 @@
 package com.dylanmuszel.melichallenge.presentation.productlist
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,27 +9,45 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dylanmuszel.domain.Product
 import com.dylanmuszel.melichallenge.R
 import com.dylanmuszel.melichallenge.databinding.FragmentProductListBinding
 import com.dylanmuszel.melichallenge.presentation.core.BaseFragment
+import com.dylanmuszel.melichallenge.presentation.core.getSerializableList
 import com.dylanmuszel.melichallenge.presentation.search.SearchActivity
 
 class ProductListFragment : BaseFragment<FragmentProductListBinding, ProductListPresenter>(), ProductListView {
 
-    private val productListAdapter = ProductListAdapter()
+    private val list = mutableListOf<Product>()
+    private lateinit var productListAdapter: ProductListAdapter
 
     override val inflate: (inflater: LayoutInflater, container: ViewGroup?, attachToRoot: Boolean) -> FragmentProductListBinding =
         FragmentProductListBinding::inflate
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun init() {
+        presenter.onInit(requireArgument(QUERY_EXTRA))
+    }
+
+    override fun setUI() {
+        productListAdapter = ProductListAdapter(list)
         with(binding.productListRecycler) {
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter = productListAdapter
+            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         }
         binding.toolbar.onSearchClicked = { presenter.onSearchButtonClicked() }
-        presenter.onInit(requireArgument(QUERY_EXTRA))
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putSerializable(PRODUCT_LIST_EXTRA, ArrayList(list))
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        list.clear()
+        savedInstanceState?.getSerializableList<Product>(PRODUCT_LIST_EXTRA)?.let { list.addAll(it) }
+        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun toggleLoadingVisibility(isVisible: Boolean) {
@@ -57,6 +76,7 @@ class ProductListFragment : BaseFragment<FragmentProductListBinding, ProductList
 
     companion object {
 
+        private const val PRODUCT_LIST_EXTRA = "PRODUCT_LIST_EXTRA"
         private const val QUERY_EXTRA = "QUERY_EXTRA"
 
         /** Returns a new instance of the [ProductListFragment]. */

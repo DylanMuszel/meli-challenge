@@ -10,7 +10,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.updatePadding
 import com.dylanmuszel.melichallenge.R
-import org.w3c.dom.Text
 
 /**
  * Toolbar custom view allowing to reuse the component on different views.
@@ -28,6 +27,7 @@ class Toolbar @JvmOverloads constructor(
 
     init {
         View.inflate(context, R.layout.view_toolbar, this)
+        elevation = context.resources.getDimension(R.dimen.toolbar_elevation)
         setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary))
         val fragmentPadding = context.resources.getDimensionPixelSize(R.dimen.fragment_padding)
         val verticalPadding = context.resources.getDimensionPixelSize(R.dimen.spacing_medium_more)

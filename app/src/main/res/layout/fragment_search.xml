@@ -9,7 +9,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:elevation="@dimen/search_header_elevation"
+        android:elevation="@dimen/toolbar_elevation"
         app:layout_constraintBottom_toTopOf="@id/search_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

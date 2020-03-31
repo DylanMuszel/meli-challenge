@@ -14,9 +14,7 @@ import java.text.NumberFormat
 /**
  * A [RecyclerView.Adapter] implementation holding a list of [Product]s.
  */
-class ProductListAdapter : RecyclerView.Adapter<ProductListAdapter.ProductListViewHolder>() {
-
-    private val list = mutableListOf<Product>()
+class ProductListAdapter(private val list: MutableList<Product>) : RecyclerView.Adapter<ProductListAdapter.ProductListViewHolder>() {
 
     override fun getItemCount() = list.size
 

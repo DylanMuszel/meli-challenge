@@ -33,10 +33,10 @@
 
     <!-- Toolbar -->
     <dimen name="toolbar_search_size">40dp</dimen>
+    <dimen name="toolbar_elevation">10dp</dimen>
 
     <!-- Search -->
     <dimen name="search_logo_size">60dp</dimen>
-    <dimen name="search_header_elevation">10dp</dimen>
 
     <!-- Product list -->
     <dimen name="product_list_error_image_size">80dp</dimen>
