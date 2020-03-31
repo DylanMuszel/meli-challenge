@@ -17,6 +17,10 @@ dependencies {
     implementation project(':core')
     implementation project(':data')
     implementation project(':entities')
+
+    testImplementation testingLibraries.androidx.core
+    testImplementation testingLibraries.junit
+    testImplementation testingLibraries.mockito.kotlin
 }
 
 sourceCompatibility = "7"
