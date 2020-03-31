@@ -20,7 +20,7 @@ class SearchFragmentTest {
     }
 
     @Test
-    fun whenShowSearchEmptyErrorThenSearchInputHasError() {
+    fun whenShowSearchEmptyErrorThenSearchInputHasErrora() {
 
         // GIVEN
 
