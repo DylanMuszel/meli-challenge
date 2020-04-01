@@ -7,6 +7,7 @@ import com.dylanmuszel.melichallenge.presentation.model.ProductAttributeUI
 import com.dylanmuszel.melichallenge.presentation.model.ProductUI
 import java.text.NumberFormat
 
+/** Mapper method that maps a [Product] to a [ProductUI] that contains what UI needs. */
 fun Product.toProductUI() = ProductUI(
     title = title,
     price = NumberFormat.getCurrencyInstance().format(price),
@@ -36,5 +37,5 @@ fun Product.toProductUI() = ProductUI(
         else -> null
     },
     address = "${address.cityName}, ${address.stateName}",
-    attributes = attributes.map { ProductAttributeUI(it.name, it.values.joinToString { value -> value.name }) }
+    attributes = attributes.map { it.toProductAttributeUI() }
 )
