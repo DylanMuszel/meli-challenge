@@ -8,8 +8,8 @@ import com.dylanmuszel.melichallenge.presentation.core.BasePresenter
 import com.dylanmuszel.melichallenge.presentation.model.ProductUI
 import com.dylanmuszel.melichallenge.presentation.model.mapper.toProductUI
 import com.dylanmuszel.usecases.product.SearchProductsUseCase
-import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlinx.coroutines.launch
 
 class ProductListPresenter @Inject constructor(
     private val searchProductsUseCase: SearchProductsUseCase
