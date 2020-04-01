@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.dylanmuszel.melichallenge.presentation.core.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/image_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/product_detail_image_height"
+                android:background="@color/white"
+                android:paddingTop="@dimen/spacing_medium_more"
+                android:paddingBottom="@dimen/spacing_medium_more"
+                app:actualImageScaleType="fitCenter"
+                app:failureImage="@drawable/ic_photo"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/fragment_padding" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/fragment_padding" />
+
+            <TextView
+                android:id="@+id/condition_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/font_medium"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/image_view"
+                tools:text="Nuevo" />
+
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/condition_text"
+                tools:text="Harry Potter 3" />
+
+            <TextView
+                android:id="@+id/price_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:textSize="@dimen/font_large_extra"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/title_text"
+                tools:text="$ 1.234,56" />
+
+            <TextView
+                android:id="@+id/available_quantity_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_big_extra"
+                android:textColor="@color/success_green"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/price_text"
+                tools:text="¡Hay 14 disponibles!" />
+
+            <TextView
+                android:id="@+id/sold_quantity_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/available_quantity_text"
+                tools:text="Ya se vendieron 10 productos" />
+
+            <View
+                android:id="@+id/seller_separator"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/spacing_big_extra"
+                android:background="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sold_quantity_text" />
+
+            <TextView
+                android:id="@+id/seller_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_big_extra"
+                android:text="@string/product_detail_seller_information"
+                android:textSize="@dimen/font_large"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toTopOf="@id/seller_separator" />
+
+            <ImageView
+                android:id="@+id/seller_location_icon"
+                android:layout_width="@dimen/product_detail_icon_size"
+                android:layout_height="@dimen/product_detail_icon_size"
+                android:contentDescription="@string/product_detail_seller_location"
+                android:src="@drawable/ic_location"
+                app:layout_constraintBottom_toBottomOf="@id/seller_location_text"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toTopOf="@id/seller_location_title" />
+
+            <TextView
+                android:id="@+id/seller_location_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_medium_more"
+                android:layout_marginTop="@dimen/spacing_large_extra"
+                android:text="@string/product_detail_seller_location"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toEndOf="@id/seller_location_icon"
+                app:layout_constraintTop_toBottomOf="@id/seller_info" />
+
+            <TextView
+                android:id="@+id/seller_location_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_medium_more"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:textSize="@dimen/font_medium_more"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toEndOf="@id/seller_location_icon"
+                app:layout_constraintTop_toBottomOf="@id/seller_location_title"
+                tools:text="Palermo, Capital Federal" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/seller_status_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="seller_status_icon,seller_status_text"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/seller_status_icon"
+                android:layout_width="@dimen/product_detail_icon_size"
+                android:layout_height="@dimen/product_detail_icon_size"
+                android:layout_marginBottom="@dimen/spacing_big_extra"
+                android:src="@drawable/ic_star"
+                app:layout_constraintBottom_toBottomOf="@id/seller_status_text"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toTopOf="@id/seller_status_text"
+                tools:tint="@color/success_green" />
+
+            <TextView
+                android:id="@+id/seller_status_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_medium_more"
+                android:layout_marginTop="@dimen/spacing_large_extra"
+                android:paddingBottom="@dimen/spacing_big_extra"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toEndOf="@id/seller_status_icon"
+                app:layout_constraintTop_toBottomOf="@id/seller_location_text"
+                tools:text="MercadoLíder Platinum"
+                tools:textColor="@color/success_green" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/attributes_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="attributes_separator,attributes_grid,attributes_title"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/attributes_separator"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/product_detail_separator_height"
+                android:background="@drawable/ic_separator"
+                app:layout_constraintTop_toBottomOf="@id/seller_status_text" />
+
+            <TextView
+                android:id="@+id/attributes_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_big_extra"
+                android:text="@string/product_detail_attributtes_title"
+                android:textSize="@dimen/font_large"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/attributes_separator" />
+
+            <com.dylanmuszel.melichallenge.presentation.core.WrappingGridView
+                android:id="@+id/attributes_grid"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large_extra"
+                android:horizontalSpacing="@dimen/spacing_large"
+                android:numColumns="2"
+                android:paddingBottom="@dimen/spacing_big_extra"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="@dimen/spacing_large"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/attributes_title" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

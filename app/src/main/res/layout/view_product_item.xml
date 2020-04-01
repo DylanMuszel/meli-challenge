@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?selectableItemBackgroundBorderless"
+    android:background="?selectableItemBackground"
     android:paddingStart="@dimen/fragment_padding"
     android:paddingTop="@dimen/spacing_medium_extra"
     android:paddingEnd="@dimen/fragment_padding"
@@ -14,7 +14,8 @@
         android:id="@+id/image_view"
         android:layout_width="@dimen/product_item_image_size"
         android:layout_height="@dimen/product_item_image_size"
-        android:scaleType="fitCenter"
+        app:actualImageScaleType="fitCenter"
+        app:failureImage="@drawable/ic_photo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

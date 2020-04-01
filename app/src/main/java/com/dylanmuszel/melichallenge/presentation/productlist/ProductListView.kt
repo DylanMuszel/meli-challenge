@@ -22,6 +22,9 @@ interface ProductListView {
     /** Show the [products] retrieved. */
     fun showProducts(products: List<ProductUI>)
 
+    /** Open the detail view of the [product]. */
+    fun goToProductDetail(product: ProductUI)
+
     /** Open the search view to start a new one. */
     fun goToSearch()
 }

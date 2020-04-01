@@ -3,7 +3,7 @@ package com.dylanmuszel.melichallenge.presentation
 import arrow.core.Either
 import com.dylanmuszel.core.fp.NetworkConnectionFailure
 import com.dylanmuszel.core.fp.ServerFailure
-import com.dylanmuszel.domain.Product
+import com.dylanmuszel.domain.*
 import com.dylanmuszel.melichallenge.CoroutineTestRule
 import com.dylanmuszel.melichallenge.framework.core.Logger
 import com.dylanmuszel.melichallenge.presentation.model.mapper.toProductUI
@@ -121,9 +121,16 @@ class ProductListPresenterTest {
         }
     }
 
-    private fun mockProduct() = mock<Product>().apply {
-        whenever(title).thenReturn("title")
-        whenever(price).thenReturn(800f)
-        whenever(thumbnail).thenReturn("thumbnail")
-    }
+    private fun mockProduct() = Product(
+        title = "title",
+        price = 1200f,
+        availableQuantity = 3,
+        soldQuantity = 1,
+        seller = Seller("gold"),
+        condition = "new",
+        permalink = "",
+        thumbnail = "",
+        address = ProductAddress("Palermo", "Capital Federal"),
+        attributes = listOf(ProductAttribute("", listOf(ProductAttributeValue(""), ProductAttributeValue(""))))
+    )
 }

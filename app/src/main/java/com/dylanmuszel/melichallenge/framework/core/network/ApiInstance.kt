@@ -1,6 +1,8 @@
 package com.dylanmuszel.melichallenge.framework.core.network
 
 import com.dylanmuszel.melichallenge.BuildConfig
+import com.google.gson.FieldNamingPolicy
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -20,7 +22,11 @@ class ApiInstance @Inject constructor() {
         get() = _retrofit ?: run {
             _retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(
+                    GsonConverterFactory.create(
+                        GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create()
+                    )
+                )
                 .apply {
                     if (BuildConfig.DEBUG) {
                         val logging = HttpLoggingInterceptor().apply {
