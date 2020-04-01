@@ -9,3 +9,5 @@ This project uses MVP architecture and is organized with a modularized clean arc
    - presentation: contains the android views and presenters (e.g.: ProductDetailFragment).
    
 JUnit and Mockito are used for unit testing and Espresso for instrumentation testing.
+
+![challenge](https://user-images.githubusercontent.com/14262610/78101581-4e213100-73be-11ea-926d-d72a8f0ac6b3.gif)
