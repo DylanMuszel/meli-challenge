@@ -21,14 +21,12 @@
     <string name="product_detail_seller_information">Información del vendedor</string>
     <string name="product_detail_seller_location">Ubicación</string>
     <string name="product_detail_attributtes_title">Características</string>
-    <plurals name="product_detail_available_quantity">
-        <item quantity="zero">El producto no se encuentra disponible actualmente</item>
-        <item quantity="one">¡Queda el último disponible!</item>
-        <item quantity="other">¡Hay %1$d disponibles!</item>
-    </plurals>
-    <plurals name="product_detail_sold_quantity">
-        <item quantity="zero">Sé el primero en comprar</item>
-        <item quantity="one">Ya se vendió 1 producto</item>
-        <item quantity="other">Ya se vendieron %1$d productos</item>
-    </plurals>
+    <string name="product_detail_available_quantity_zero">El producto no se encuentra disponible actualmente</string>
+    <string name="product_detail_available_quantity_last">¡Queda el último disponible!</string>
+    <string name="product_detail_available_quantity_number">¡Hay %1$d disponibles!</string>
+    <string name="product_detail_available_quantity_more_than">¡Hay más de %1$d disponibles!</string>
+    <string name="product_detail_sold_quantity_zero">Sé el primero en comprar</string>
+    <string name="product_detail_sold_quantity_one">Ya se vendió 1</string>
+    <string name="product_detail_sold_quantity_plural">Ya se vendieron %1$d</string>
+    <string name="product_detail_sold_quantity_more_than">¡Ya se vendieron más de %1$d!</string>
 </resources>

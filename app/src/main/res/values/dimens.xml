@@ -47,6 +47,7 @@
 
     <!-- Product detail -->
     <dimen name="product_detail_image_height">180dp</dimen>
-    <dimen name="product_item_icon_size">24dp</dimen>
+    <dimen name="product_detail_separator_height">1dp</dimen>
+    <dimen name="product_detail_icon_size">24dp</dimen>
 
 </resources>

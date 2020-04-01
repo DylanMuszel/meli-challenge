@@ -7,7 +7,6 @@ import androidx.annotation.VisibleForTesting
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
-import com.dylanmuszel.melichallenge.R
 import com.dylanmuszel.melichallenge.databinding.FragmentProductDetailBinding
 import com.dylanmuszel.melichallenge.presentation.core.BaseFragment
 import com.dylanmuszel.melichallenge.presentation.model.ProductUI
@@ -26,23 +25,20 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
     override fun showProduct(product: ProductUI) = with(binding) {
         with(product) {
             imageView.setImageURI(thumbnail)
-            conditionText.text = getString(condition)
+            conditionText.text = getString(conditionRes)
             titleText.text = title
             priceText.text = price
-            availableQuantityText.text = requireContext()
-                .resources
-                .getQuantityString(R.plurals.product_detail_available_quantity, availableQuantity, availableQuantity)
-            soldQuantityText.text = requireContext()
-                .resources
-                .getQuantityString(R.plurals.product_detail_sold_quantity, soldQuantity, soldQuantity)
+            availableQuantityText.text = getString(availableQuantityTextRes, availableQuantity)
+            soldQuantityText.text = getString(soldQuantityTextRes, soldQuantity)
             sellerLocationText.text = address
             sellerStatus?.let {
-                sellerStatusView.isVisible = true
+                sellerStatusGroup.isVisible = true
                 sellerStatusText.text = getString(it.textRes)
                 sellerStatusText.setTextColor(ContextCompat.getColor(requireContext(), it.colorRes))
                 sellerStatusIcon.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(requireContext(), it.colorRes))
             }
             attributesGrid.adapter = ProductAttributeAdapter(attributes)
+            attributesGroup.isVisible = attributes.isNotEmpty()
         }
     }
 
