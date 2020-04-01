@@ -1,10 +1,12 @@
 package com.dylanmuszel.melichallenge.presentation.productdetail
 
-import android.util.Log
+import android.content.res.ColorStateList
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.VisibleForTesting
+import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import com.dylanmuszel.melichallenge.R
 import com.dylanmuszel.melichallenge.databinding.FragmentProductDetailBinding
 import com.dylanmuszel.melichallenge.presentation.core.BaseFragment
@@ -27,13 +29,18 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
             conditionText.text = getString(condition)
             titleText.text = title
             priceText.text = price
-            Log.d("DylanLog", "$availableQuantity - $soldQuantity")
             availableQuantityText.text = requireContext()
                 .resources
                 .getQuantityString(R.plurals.product_detail_available_quantity, availableQuantity, availableQuantity)
             soldQuantityText.text = requireContext()
                 .resources
                 .getQuantityString(R.plurals.product_detail_sold_quantity, soldQuantity, soldQuantity)
+            sellerStatus?.let {
+                sellerStatusView.isVisible = true
+                sellerStatusText.text = getString(it.textRes)
+                sellerStatusText.setTextColor(ContextCompat.getColor(requireContext(), it.colorRes))
+                sellerStatusIcon.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(requireContext(), it.colorRes))
+            }
             sellerLocationText.text = address
         }
     }

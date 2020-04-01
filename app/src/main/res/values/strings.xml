@@ -16,6 +16,8 @@
     <!-- Product detail -->
     <string name="product_new">Nuevo</string>
     <string name="product_used">Usado</string>
+    <string name="product_seller_status_gold">MercadoLíder Gold</string>
+    <string name="product_seller_status_platinum">MercadoLíder Platinum</string>
     <string name="product_detail_seller_information">Información del vendedor</string>
     <string name="product_detail_seller_location">Ubicación</string>
     <plurals name="product_detail_available_quantity">
