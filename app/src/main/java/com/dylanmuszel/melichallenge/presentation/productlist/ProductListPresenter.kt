@@ -4,16 +4,14 @@ import com.dylanmuszel.core.fp.Failure
 import com.dylanmuszel.core.fp.NetworkConnectionFailure
 import com.dylanmuszel.core.fp.ServerFailure
 import com.dylanmuszel.domain.Product
-import com.dylanmuszel.melichallenge.framework.core.Logger
 import com.dylanmuszel.melichallenge.presentation.core.BasePresenter
 import com.dylanmuszel.melichallenge.presentation.model.ProductUI
 import com.dylanmuszel.melichallenge.presentation.model.mapper.toProductUI
 import com.dylanmuszel.usecases.product.SearchProductsUseCase
-import javax.inject.Inject
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class ProductListPresenter @Inject constructor(
-    private val logger: Logger,
     private val searchProductsUseCase: SearchProductsUseCase
 ) : BasePresenter<ProductListView>() {
 
@@ -21,9 +19,7 @@ class ProductListPresenter @Inject constructor(
     fun onInit(query: String) = launch {
         view?.toggleLoadingVisibility(true)
         view?.setSearchingQueryTitle(query)
-        searchProductsUseCase(query).fold(
-            { handleSearchError(query, it) },
-            { handleSearchSuccess(it) })
+        searchProductsUseCase(query).fold(::handleSearchError, ::handleSearchSuccess)
         view?.toggleLoadingVisibility(false)
     }
 
@@ -33,13 +29,10 @@ class ProductListPresenter @Inject constructor(
     /** Invoked when the toolbar search button is clicked. */
     fun onSearchButtonClicked() = view?.goToSearch()
 
-    private fun handleSearchError(query: String, failure: Failure) {
+    private fun handleSearchError(failure: Failure) {
         when (failure) {
             NetworkConnectionFailure -> view?.showNetworkConnectionError()
-            is ServerFailure -> {
-                logger.e(TAG, "Error while searching $query", failure.exception)
-                view?.showUnexpectedError()
-            }
+            is ServerFailure -> view?.showUnexpectedError()
         }
     }
 
@@ -49,9 +42,5 @@ class ProductListPresenter @Inject constructor(
         } else {
             showNoProductsError()
         }
-    }
-
-    companion object {
-        private const val TAG = "ProductListPresenter"
     }
 }

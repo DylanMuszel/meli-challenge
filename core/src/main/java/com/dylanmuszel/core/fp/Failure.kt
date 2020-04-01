@@ -1,7 +1,5 @@
 package com.dylanmuszel.core.fp
 
-import java.lang.Exception
-
 sealed class Failure
 
 /** Failure to return when the device is offline. */
@@ -12,7 +10,7 @@ object NetworkConnectionFailure : Failure()
  *
  * It could be extended in case of an expected server error.
  */
-open class ServerFailure(val exception: Exception) : Failure()
+open class ServerFailure(val exception: Throwable) : Failure()
 
 /** Failure to be extended for feature specific failures. */
 abstract class FeatureFailure : Failure()

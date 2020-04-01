@@ -6,14 +6,14 @@ import com.dylanmuszel.core.fp.NetworkConnectionFailure
 import com.dylanmuszel.core.fp.ServerFailure
 import com.dylanmuszel.data.ProductDataSource
 import com.dylanmuszel.domain.Product
-import com.dylanmuszel.melichallenge.framework.core.network.ConnectivityInfo
-import retrofit2.HttpException
+import com.dylanmuszel.melichallenge.framework.core.Logger
+import com.dylanmuszel.melichallenge.framework.core.network.NoNetworkException
 
 /**
  * Network implementation for the [ProductDataSource].
  */
 class ProductNetworkDataSource(
-    private val connectivityInfo: ConnectivityInfo,
+    private val logger: Logger,
     private val productService: ProductService
 ) : ProductDataSource {
 
@@ -25,14 +25,18 @@ class ProductNetworkDataSource(
      */
     override suspend fun search(query: String): Either<Failure, List<Product>> {
 
-        if (!connectivityInfo.isOnline) {
-            return Either.Left(NetworkConnectionFailure)
-        }
-
         return try {
             Either.Right(productService.search(query).results)
-        } catch (exception: HttpException) {
-            Either.Left(ServerFailure(exception))
+        } catch (exception: NoNetworkException) {
+            Either.Left(NetworkConnectionFailure)
+        } catch (e: Throwable) {
+            // Logging unexpected server error as soon as catched
+            logger.e(TAG, "Unexpected error while searching $query", e)
+            Either.Left(ServerFailure(e))
         }
+    }
+
+    companion object {
+        private const val TAG = "ProductListPresenter"
     }
 }

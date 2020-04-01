@@ -27,7 +27,7 @@ class ProductNetworkDataSourceTest {
     fun setup() {
         connectivityInfo = mock()
         productService = mock()
-        productNetworkDataSource = ProductNetworkDataSource(connectivityInfo, productService)
+        productNetworkDataSource = ProductNetworkDataSource(productService)
     }
 
     @Test

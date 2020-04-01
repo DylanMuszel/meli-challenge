@@ -70,7 +70,7 @@ class ProductListFragment : BaseFragment<FragmentProductListBinding, ProductList
     override fun showProducts(products: List<ProductUI>) {
         productListAdapter.setProducts(products)
         binding.productListRecycler.isVisible = true
-        binding.error.isVisible = false
+        binding.errorGroup.isVisible = false
     }
 
     override fun goToSearch() = startActivity(SearchActivity.getStarterIntent(requireContext()))
@@ -82,7 +82,7 @@ class ProductListFragment : BaseFragment<FragmentProductListBinding, ProductList
         errorImage.setImageResource(imageRes)
         errorText.setText(textRes)
         productListRecycler.isVisible = false
-        error.isVisible = true
+        errorGroup.isVisible = true
     }
 
     companion object {
