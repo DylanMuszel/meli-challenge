@@ -4,18 +4,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
-import com.dylanmuszel.domain.Product
 import com.dylanmuszel.melichallenge.R
 import com.dylanmuszel.melichallenge.presentation.model.ProductUI
 import com.facebook.drawee.view.SimpleDraweeView
-import java.text.NumberFormat
 
 /**
  * A [RecyclerView.Adapter] implementation holding a list of [ProductUI]s.
  */
-class ProductListAdapter(private val list: MutableList<ProductUI>) : RecyclerView.Adapter<ProductListAdapter.ProductListViewHolder>() {
+class ProductListAdapter(
+    private val list: MutableList<ProductUI>,
+    private val onProductClick: (product: ProductUI) -> Unit
+) : RecyclerView.Adapter<ProductListAdapter.ProductListViewHolder>() {
 
     override fun getItemCount() = list.size
 
@@ -45,6 +45,7 @@ class ProductListAdapter(private val list: MutableList<ProductUI>) : RecyclerVie
 
         /** Binds a [product] into a row. */
         fun bind(product: ProductUI) = with(product) {
+            itemView.setOnClickListener { onProductClick(product) }
             imageView.setImageURI(thumbnail)
             titleText.text = title
             priceText.text = price

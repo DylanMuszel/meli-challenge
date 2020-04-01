@@ -22,5 +22,7 @@
         </activity>
 
         <activity android:name=".presentation.productlist.ProductListActivity" />
+
+        <activity android:name=".presentation.productdetail.ProductDetailActivity" />
     </application>
 </manifest>

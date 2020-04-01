@@ -45,4 +45,8 @@
     <!-- Product item -->
     <dimen name="product_item_image_size">48dp</dimen>
 
+    <!-- Product detail -->
+    <dimen name="product_detail_image_height">180dp</dimen>
+    <dimen name="product_item_icon_size">24dp</dimen>
+
 </resources>

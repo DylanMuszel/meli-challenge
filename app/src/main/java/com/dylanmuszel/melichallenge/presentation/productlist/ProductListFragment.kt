@@ -15,6 +15,7 @@ import com.dylanmuszel.melichallenge.databinding.FragmentProductListBinding
 import com.dylanmuszel.melichallenge.presentation.core.BaseFragment
 import com.dylanmuszel.melichallenge.presentation.core.getSerializableList
 import com.dylanmuszel.melichallenge.presentation.model.ProductUI
+import com.dylanmuszel.melichallenge.presentation.productdetail.ProductDetailActivity
 import com.dylanmuszel.melichallenge.presentation.search.SearchActivity
 
 class ProductListFragment : BaseFragment<FragmentProductListBinding, ProductListPresenter>(), ProductListView {
@@ -30,7 +31,7 @@ class ProductListFragment : BaseFragment<FragmentProductListBinding, ProductList
     }
 
     override fun setUI() {
-        productListAdapter = ProductListAdapter(list)
+        productListAdapter = ProductListAdapter(list) { presenter.onProductClicked(it) }
         with(binding.productListRecycler) {
             adapter = productListAdapter
             addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
@@ -70,6 +71,9 @@ class ProductListFragment : BaseFragment<FragmentProductListBinding, ProductList
     }
 
     override fun goToSearch() = startActivity(SearchActivity.getStarterIntent(requireContext()))
+
+    override fun goToProductDetail(product: ProductUI) =
+        startActivity(ProductDetailActivity.getStarterIntent(requireContext(), product))
 
     private fun showError(@DrawableRes imageRes: Int, @StringRes textRes: Int) = with(binding) {
         errorImage.setImageResource(imageRes)

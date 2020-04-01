@@ -7,13 +7,11 @@ data class Product(
     val availableQuantity: Int,
     val soldQuantity: Int,
     val seller: Seller,
-    val listingTypeId: String,
     val condition: String,
     val permalink: String,
     val thumbnail: String,
     val address: ProductAddress,
-    val shipping: Shipping,
     val attributes: List<ProductAttribute>,
-    val categoryId: Int,
+    val categoryId: String,
     val tags: List<String>
 )

@@ -3,6 +3,7 @@ package com.dylanmuszel.melichallenge.di
 import android.app.Application
 import android.content.Context
 import com.dylanmuszel.melichallenge.framework.product.ProductModule
+import com.dylanmuszel.melichallenge.presentation.productdetail.ProductDetailModule
 import com.dylanmuszel.melichallenge.presentation.productlist.ProductListModule
 import com.dylanmuszel.melichallenge.presentation.search.SearchModule
 import dagger.Module
@@ -14,7 +15,8 @@ import javax.inject.Singleton
     includes = [
         ProductModule::class,
         SearchModule::class,
-        ProductListModule::class
+        ProductListModule::class,
+        ProductDetailModule::class
     ]
 )
 class AppModule {
