@@ -1,7 +1,6 @@
 package com.dylanmuszel.domain
 
 data class Product(
-    val id: String,
     val title: String,
     val price: Float,
     val availableQuantity: Int,
@@ -11,7 +10,5 @@ data class Product(
     val permalink: String,
     val thumbnail: String,
     val address: ProductAddress,
-    val attributes: List<ProductAttribute>,
-    val categoryId: String,
-    val tags: List<String>
+    val attributes: List<ProductAttribute>
 )
