@@ -1,10 +1,9 @@
 package com.dylanmuszel.usecases.product
 
-import com.dylanmuszel.core.fp.FeatureFailure
 import com.dylanmuszel.data.ProductRepository
+import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
 
 /**
  * Use case to search products by a query.

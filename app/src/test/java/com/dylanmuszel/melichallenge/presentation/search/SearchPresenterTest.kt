@@ -1,6 +1,9 @@
 package com.dylanmuszel.melichallenge.presentation.search
 
-import com.nhaarman.mockitokotlin2.*
+import com.nhaarman.mockitokotlin2.eq
+import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.only
+import com.nhaarman.mockitokotlin2.verify
 import org.junit.Before
 import org.junit.Test
 

@@ -2,7 +2,6 @@ package com.dylanmuszel.melichallenge.presentation.model
 
 import android.os.Parcelable
 import androidx.annotation.StringRes
-import com.dylanmuszel.domain.ProductAttribute
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize

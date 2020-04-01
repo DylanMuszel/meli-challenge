@@ -35,6 +35,5 @@ class ConnectivityInfo @Inject constructor(@Named("applicationContext") private 
                     else -> false
                 }
             }
-
         }
 }

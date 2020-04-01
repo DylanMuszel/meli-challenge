@@ -11,5 +11,4 @@ class ProductDetailPresenter @Inject constructor() : BasePresenter<ProductDetail
 
     /** Invoked when the toolbar search button is clicked. */
     fun onSearchButtonClicked() = view?.goToSearch()
-
 }

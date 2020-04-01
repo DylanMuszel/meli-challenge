@@ -3,7 +3,11 @@ package com.dylanmuszel.melichallenge.presentation.productlist
 import arrow.core.Either
 import com.dylanmuszel.core.fp.NetworkConnectionFailure
 import com.dylanmuszel.core.fp.ServerFailure
-import com.dylanmuszel.domain.*
+import com.dylanmuszel.domain.Product
+import com.dylanmuszel.domain.ProductAddress
+import com.dylanmuszel.domain.ProductAttribute
+import com.dylanmuszel.domain.ProductAttributeValue
+import com.dylanmuszel.domain.Seller
 import com.dylanmuszel.melichallenge.CoroutineTestRule
 import com.dylanmuszel.melichallenge.framework.core.Logger
 import com.dylanmuszel.melichallenge.presentation.model.mapper.toProductUI

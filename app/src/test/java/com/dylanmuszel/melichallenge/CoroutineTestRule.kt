@@ -1,5 +1,6 @@
 package com.dylanmuszel.melichallenge
 
+import java.util.concurrent.Executors
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.asCoroutineDispatcher
@@ -8,7 +9,6 @@ import kotlinx.coroutines.test.setMain
 import org.junit.rules.TestRule
 import org.junit.runner.Description
 import org.junit.runners.model.Statement
-import java.util.concurrent.Executors
 
 class CoroutineTestRule : TestRule {
 

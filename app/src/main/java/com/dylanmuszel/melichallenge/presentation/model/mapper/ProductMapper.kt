@@ -1,10 +1,9 @@
 package com.dylanmuszel.melichallenge.presentation.model.mapper
 
 import com.dylanmuszel.domain.Product
-import com.dylanmuszel.melichallenge.presentation.model.SellerStatusUI
 import com.dylanmuszel.melichallenge.R
-import com.dylanmuszel.melichallenge.presentation.model.ProductAttributeUI
 import com.dylanmuszel.melichallenge.presentation.model.ProductUI
+import com.dylanmuszel.melichallenge.presentation.model.SellerStatusUI
 import java.text.NumberFormat
 
 /** Mapper method that maps a [Product] to a [ProductUI] that contains what UI needs. */

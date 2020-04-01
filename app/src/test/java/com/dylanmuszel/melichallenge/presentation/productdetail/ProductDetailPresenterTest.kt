@@ -22,7 +22,7 @@ class ProductDetailPresenterTest {
     }
 
     @Test
-    fun `given a product when init then show the product`(){
+    fun `given a product when init then show the product`() {
 
         // GIVEN
         val product = mock<ProductUI>()

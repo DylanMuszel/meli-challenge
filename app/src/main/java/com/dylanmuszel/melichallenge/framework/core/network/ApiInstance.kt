@@ -3,12 +3,12 @@ package com.dylanmuszel.melichallenge.framework.core.network
 import com.dylanmuszel.melichallenge.BuildConfig
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
+import javax.inject.Inject
+import javax.inject.Singleton
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * Object responsible of creating the retrofit instance and services.

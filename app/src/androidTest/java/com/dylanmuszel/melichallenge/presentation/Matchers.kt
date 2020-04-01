@@ -1,24 +1,11 @@
 package com.dylanmuszel.melichallenge.presentation
 
-import android.content.Context
-import android.content.res.ColorStateList
-import android.graphics.PorterDuff
-import android.graphics.drawable.Drawable
 import android.view.View
-import android.widget.EditText
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.ColorInt
-import androidx.annotation.ColorRes
-import androidx.annotation.DrawableRes
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.toBitmap
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.matcher.BoundedMatcher
 import org.hamcrest.Description
 import org.hamcrest.Matcher
-import org.hamcrest.TypeSafeMatcher
-
 
 fun atPosition(position: Int, itemMatcher: Matcher<View>): Matcher<View?>? {
 

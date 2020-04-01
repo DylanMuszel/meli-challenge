@@ -10,4 +10,3 @@ class ProductRepository @Inject constructor(private val dataSource: ProductDataS
     /** Search products by a [query]. */
     suspend fun search(query: String) = dataSource.search(query)
 }
-

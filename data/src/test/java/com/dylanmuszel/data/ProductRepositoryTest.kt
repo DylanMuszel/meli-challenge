@@ -55,4 +55,3 @@ class ProductRepositoryTest {
         response.fold({ assertThat(it, instanceOf(FeatureFailure::class.java)) }, {})
     }
 }
-
