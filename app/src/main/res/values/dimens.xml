@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="fragment_padding">24dp</dimen>
+    <dimen name="fragment_padding">16dp</dimen>
 
     <!-- Spacing -->
     <dimen name="spacing_none">0dp</dimen>

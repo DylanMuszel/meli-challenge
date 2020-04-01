@@ -20,6 +20,7 @@
     <string name="product_seller_status_platinum">MercadoLíder Platinum</string>
     <string name="product_detail_seller_information">Información del vendedor</string>
     <string name="product_detail_seller_location">Ubicación</string>
+    <string name="product_detail_attributtes_title">Características</string>
     <plurals name="product_detail_available_quantity">
         <item quantity="zero">El producto no se encuentra disponible actualmente</item>
         <item quantity="one">¡Queda el último disponible!</item>

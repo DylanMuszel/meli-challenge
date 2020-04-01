@@ -3,6 +3,7 @@ package com.dylanmuszel.melichallenge.presentation.model.mapper
 import com.dylanmuszel.domain.Product
 import com.dylanmuszel.melichallenge.presentation.model.SellerStatusUI
 import com.dylanmuszel.melichallenge.R
+import com.dylanmuszel.melichallenge.presentation.model.ProductAttributeUI
 import com.dylanmuszel.melichallenge.presentation.model.ProductUI
 import java.text.NumberFormat
 
@@ -22,5 +23,6 @@ fun Product.toProductUI() = ProductUI(
         "platinum" -> SellerStatusUI.PLATINUM
         else -> null
     },
-    address = "${address.cityName}, ${address.stateName}"
+    address = "${address.cityName}, ${address.stateName}",
+    attributes = attributes.map { ProductAttributeUI(it.name, it.values.joinToString { value -> value.name }) }
 )

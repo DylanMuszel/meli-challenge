@@ -35,13 +35,14 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
             soldQuantityText.text = requireContext()
                 .resources
                 .getQuantityString(R.plurals.product_detail_sold_quantity, soldQuantity, soldQuantity)
+            sellerLocationText.text = address
             sellerStatus?.let {
                 sellerStatusView.isVisible = true
                 sellerStatusText.text = getString(it.textRes)
                 sellerStatusText.setTextColor(ContextCompat.getColor(requireContext(), it.colorRes))
                 sellerStatusIcon.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(requireContext(), it.colorRes))
             }
-            sellerLocationText.text = address
+            attributesGrid.adapter = ProductAttributeAdapter(attributes)
         }
     }
 
