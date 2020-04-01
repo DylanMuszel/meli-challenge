@@ -14,7 +14,7 @@ fun Product.toProductUI() = ProductUI(
     conditionRes = when (condition) {
         "new" -> R.string.product_new
         "used" -> R.string.product_used
-        else -> throw IllegalStateException()
+        else -> null
     },
     availableQuantity = availableQuantity,
     availableQuantityTextRes = when {
@@ -36,7 +36,8 @@ fun Product.toProductUI() = ProductUI(
         else -> null
     },
     address = "${address.cityName}, ${address.stateName}",
-    attributes = attributes.map { it.toProductAttributeUI() }
+    attributes = attributes.map { it.toProductAttributeUI() },
+    permalink = permalink
 )
 
 private const val START_OF_MORE_QUANTITY = 5

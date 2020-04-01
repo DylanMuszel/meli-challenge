@@ -24,7 +24,8 @@ fun mockProductUI(
     soldQuantity: Int = 50,
     sellerStatus: SellerStatusUI? = SellerStatusUI.PLATINUM,
     address: String = "Palermo, Argentina",
-    attributes: List<ProductAttributeUI> = listOf(ProductAttributeUI("attr", "value"))
+    attributes: List<ProductAttributeUI> = listOf(ProductAttributeUI("attr", "value")),
+    permalink: String = "http:://www.facebook.com"
 ) = ProductUI(
     title = title,
     price = price,
@@ -36,5 +37,6 @@ fun mockProductUI(
     soldQuantity = soldQuantity,
     sellerStatus = sellerStatus,
     address = address,
-    attributes = attributes
+    attributes = attributes,
+    permalink = permalink
 )

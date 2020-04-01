@@ -9,4 +9,7 @@ interface ProductDetailView {
 
     /** Open the search view to start a new one. */
     fun goToSearch()
+
+    /** Open a web view for the given [link]. */
+    fun openWeb(link: String)
 }

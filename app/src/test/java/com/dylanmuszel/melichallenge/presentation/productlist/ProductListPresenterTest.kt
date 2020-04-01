@@ -9,7 +9,6 @@ import com.dylanmuszel.domain.ProductAttribute
 import com.dylanmuszel.domain.ProductAttributeValue
 import com.dylanmuszel.domain.Seller
 import com.dylanmuszel.melichallenge.CoroutineTestRule
-import com.dylanmuszel.melichallenge.framework.core.Logger
 import com.dylanmuszel.melichallenge.presentation.model.mapper.toProductUI
 import com.dylanmuszel.usecases.product.SearchProductsUseCase
 import com.nhaarman.mockitokotlin2.eq
@@ -29,16 +28,14 @@ class ProductListPresenterTest {
     val coroutineTestRule = CoroutineTestRule()
 
     private lateinit var searchProductsUseCase: SearchProductsUseCase
-    private lateinit var logger: Logger
     private lateinit var view: ProductListView
     private lateinit var presenter: ProductListPresenter
 
     @Before
     fun setup() {
         searchProductsUseCase = mock()
-        logger = mock()
         view = mock()
-        presenter = ProductListPresenter(logger, searchProductsUseCase).apply {
+        presenter = ProductListPresenter(searchProductsUseCase).apply {
             onCreate(view)
         }
     }
@@ -103,7 +100,7 @@ class ProductListPresenterTest {
     }
 
     @Test
-    fun `given a server failure when init then log exception and set title and error`() = runBlocking {
+    fun `given a server failure when init then set title and error`() = runBlocking {
 
         // GIVEN
         val query = "query"
@@ -114,7 +111,6 @@ class ProductListPresenterTest {
         presenter.onInit(query).join()
 
         // THEN
-        verify(logger).e(anyString(), anyString(), eq(customException))
         with(inOrder(view)) {
             verify(view).toggleLoadingVisibility(eq(true))
             verify(view).setSearchingQueryTitle(eq(query))

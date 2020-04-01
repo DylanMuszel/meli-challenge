@@ -10,7 +10,7 @@ data class ProductUI(
     val price: String,
     val thumbnail: String,
     @StringRes
-    val conditionRes: Int,
+    val conditionRes: Int?,
     @StringRes
     val availableQuantityTextRes: Int,
     val availableQuantity: Int,
@@ -19,5 +19,6 @@ data class ProductUI(
     val soldQuantity: Int,
     val sellerStatus: SellerStatusUI?,
     val address: String,
-    val attributes: List<ProductAttributeUI>
+    val attributes: List<ProductAttributeUI>,
+    val permalink: String
 ) : Parcelable

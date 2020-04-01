@@ -3,6 +3,7 @@ package com.dylanmuszel.melichallenge.framework.core.network
 import com.dylanmuszel.melichallenge.BuildConfig
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
+import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
 import okhttp3.OkHttpClient
@@ -14,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
  * Object responsible of creating the retrofit instance and services.
  */
 @Singleton
-class ApiInstance @Inject constructor() {
+class ApiInstance @Inject constructor(private val connectivityInfo: ConnectivityInfo) {
 
     /** Retrofit instance for the given [BASE_URL]. */
     private var _retrofit: Retrofit? = null
@@ -27,17 +28,26 @@ class ApiInstance @Inject constructor() {
                         GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create()
                     )
                 )
-                .apply {
-                    if (BuildConfig.DEBUG) {
-                        val logging = HttpLoggingInterceptor().apply {
-                            level = HttpLoggingInterceptor.Level.BODY
+                .client(
+                    OkHttpClient
+                        .Builder()
+                        .apply {
+                            addInterceptor {
+                                if (!connectivityInfo.isOnline) {
+                                    throw NoNetworkException
+                                }
+
+                                it.proceed(it.request().newBuilder().build())
+                            }
+                            if (BuildConfig.DEBUG) {
+                                val logging = HttpLoggingInterceptor().apply {
+                                    level = HttpLoggingInterceptor.Level.BODY
+                                }
+                                addInterceptor(logging)
+                            }
                         }
-                        val httpClient = OkHttpClient.Builder().apply {
-                            addInterceptor(logging)
-                        }
-                        client(httpClient.build())
-                    }
-                }
+                        .build()
+                )
                 .build()
             _retrofit!!
         }
@@ -50,3 +60,6 @@ class ApiInstance @Inject constructor() {
         private const val BASE_URL = "https://api.mercadolibre.com/sites/$SITE_ID/"
     }
 }
+
+/** Custom exception for no network connection. */
+object NoNetworkException : IOException("No network connection")

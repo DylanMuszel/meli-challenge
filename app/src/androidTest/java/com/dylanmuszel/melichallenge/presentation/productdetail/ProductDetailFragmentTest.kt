@@ -6,7 +6,8 @@ import androidx.fragment.app.testing.FragmentScenario
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.matcher.ViewMatchers.withEffectiveVisibility
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.dylanmuszel.melichallenge.R
@@ -17,7 +18,6 @@ import com.dylanmuszel.melichallenge.presentation.model.SellerStatusUI
 import com.dylanmuszel.melichallenge.presentation.resources
 import com.dylanmuszel.melichallenge.presentation.targetContext
 import com.dylanmuszel.melichallenge.presentation.withTextColor
-import org.hamcrest.Matchers.not
 import org.junit.Test
 
 class ProductDetailFragmentTest {
@@ -42,7 +42,7 @@ class ProductDetailFragmentTest {
 
         // THEN
         with(product) {
-            onView(withId(R.id.condition_text)).check(matches(withText(conditionRes)))
+            onView(withId(R.id.condition_text)).check(matches(withText(conditionRes!!)))
             onView(withId(R.id.title_text)).check(matches(withText(title)))
             onView(withId(R.id.price_text)).check(matches(withText(price)))
             onView(withId(R.id.available_quantity_text))
@@ -66,8 +66,7 @@ class ProductDetailFragmentTest {
         setup(product)
 
         // THEN
-        onView(withId(R.id.seller_status_text)).check(matches(not(isDisplayed())))
-        onView(withId(R.id.seller_status_icon)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.seller_status_group)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.GONE)))
     }
 
     @Test
@@ -80,8 +79,7 @@ class ProductDetailFragmentTest {
         setup(product)
 
         // THEN
-        onView(withId(R.id.seller_status_text)).check(matches(isDisplayed()))
-        onView(withId(R.id.seller_status_icon)).check(matches(isDisplayed()))
+        onView(withId(R.id.seller_status_group)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)))
     }
 
     @Test
@@ -94,8 +92,7 @@ class ProductDetailFragmentTest {
         setup(product)
 
         // THEN
-        onView(withId(R.id.attributes_title)).check(matches(not(isDisplayed())))
-        onView(withId(R.id.attributes_grid)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.attributes_group)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.GONE)))
     }
 
     @Test
@@ -108,7 +105,6 @@ class ProductDetailFragmentTest {
         setup(product)
 
         // THEN
-        onView(withId(R.id.attributes_title)).check(matches(isDisplayed()))
-        onView(withId(R.id.attributes_grid)).check(matches(isDisplayed()))
+        onView(withId(R.id.attributes_group)).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)))
     }
 }
