@@ -12,6 +12,7 @@ val targetContext: Context get() = InstrumentationRegistry.getInstrumentation().
 
 val resources: Resources get() = targetContext.resources
 
+@Suppress("MaxLineLength", "MagicNumber")
 fun mockProductUI(
     title: String = "Title of a product",
     price: String = "$ 1.400,00",

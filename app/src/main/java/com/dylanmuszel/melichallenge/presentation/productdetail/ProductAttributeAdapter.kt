@@ -14,7 +14,8 @@ import com.dylanmuszel.melichallenge.presentation.model.ProductAttributeUI
 class ProductAttributeAdapter(private val attributes: List<ProductAttributeUI>) : BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val view = convertView ?: LayoutInflater.from(parent.context).inflate(R.layout.view_product_attribute_item, parent, false)
+        val view = convertView
+            ?: LayoutInflater.from(parent.context).inflate(R.layout.view_product_attribute_item, parent, false)
         with(attributes[position]) {
             view.findViewById<TextView>(R.id.name_text).text = name
             view.findViewById<TextView>(R.id.value_text).text = values

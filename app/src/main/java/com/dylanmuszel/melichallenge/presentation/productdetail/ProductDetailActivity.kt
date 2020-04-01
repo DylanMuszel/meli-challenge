@@ -14,8 +14,9 @@ class ProductDetailActivity : BaseActivity() {
         private const val PRODUCT_EXTRA = "PRODUCT_EXTRA"
 
         /** Returns an intent to start [ProductDetailActivity] showing the given [product]. */
-        fun getStarterIntent(context: Context, product: ProductUI) = Intent(context, ProductDetailActivity::class.java).apply {
-            putExtra(PRODUCT_EXTRA, product)
-        }
+        fun getStarterIntent(context: Context, product: ProductUI) =
+            Intent(context, ProductDetailActivity::class.java).apply {
+                putExtra(PRODUCT_EXTRA, product)
+            }
     }
 }

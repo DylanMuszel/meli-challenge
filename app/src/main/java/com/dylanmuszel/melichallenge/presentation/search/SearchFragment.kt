@@ -9,8 +9,11 @@ import com.dylanmuszel.melichallenge.presentation.productlist.ProductListActivit
 
 class SearchFragment : BaseFragment<FragmentSearchBinding, SearchPresenter>(), SearchView {
 
-    override val inflate: (inflater: LayoutInflater, container: ViewGroup?, attachToRoot: Boolean) -> FragmentSearchBinding =
-        FragmentSearchBinding::inflate
+    override val inflate: (
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        attachToRoot: Boolean
+    ) -> FragmentSearchBinding = FragmentSearchBinding::inflate
 
     override fun setUI() {
         binding.searchButton.setOnClickListener {
@@ -22,7 +25,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchPresenter>(), S
         binding.searchInput.error = getString(R.string.search_empty_error)
     }
 
-    override fun goToProductList(query: String) = startActivity(ProductListActivity.getStarterIntent(requireContext(), query))
+    override fun goToProductList(query: String) =
+        startActivity(ProductListActivity.getStarterIntent(requireContext(), query))
 
     companion object {
 

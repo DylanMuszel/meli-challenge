@@ -34,8 +34,8 @@ abstract class BaseFragment<T : ViewBinding, P : BasePresenter<*>> : DaggerFragm
      * A necessary abstract val that must be overridden with the [T] inflate method.
      *
      * Example
-     * override val inflate: (inflater: LayoutInflater, container: ViewGroup?, attachToRoot: Boolean) -> ExampleBinding =
-     *      ExampleBinding::inflate
+     * override val inflate:
+     * (inflater: LayoutInflater, container: ViewGroup?, attachToRoot: Boolean) -> ExampleBinding = ExampleBinding::inflate
      */
     abstract val inflate: (inflater: LayoutInflater, container: ViewGroup?, attachToRoot: Boolean) -> T
 

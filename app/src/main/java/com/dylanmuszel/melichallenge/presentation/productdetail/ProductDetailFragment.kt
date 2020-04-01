@@ -14,8 +14,11 @@ import com.dylanmuszel.melichallenge.presentation.search.SearchActivity
 
 class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, ProductDetailPresenter>(), ProductDetailView {
 
-    override val inflate: (inflater: LayoutInflater, container: ViewGroup?, attachToRoot: Boolean) -> FragmentProductDetailBinding =
-        FragmentProductDetailBinding::inflate
+    override val inflate: (
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        attachToRoot: Boolean
+    ) -> FragmentProductDetailBinding = FragmentProductDetailBinding::inflate
 
     override fun setUI() {
         presenter.onInit(requireArgument(PRODUCT_EXTRA))
@@ -35,7 +38,8 @@ class ProductDetailFragment : BaseFragment<FragmentProductDetailBinding, Product
                 sellerStatusGroup.isVisible = true
                 sellerStatusText.text = getString(it.textRes)
                 sellerStatusText.setTextColor(ContextCompat.getColor(requireContext(), it.colorRes))
-                sellerStatusIcon.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(requireContext(), it.colorRes))
+                sellerStatusIcon.imageTintList =
+                    ColorStateList.valueOf(ContextCompat.getColor(requireContext(), it.colorRes))
             }
             attributesGrid.adapter = ProductAttributeAdapter(attributes)
             attributesGroup.isVisible = attributes.isNotEmpty()

@@ -23,8 +23,11 @@ class ProductListFragment : BaseFragment<FragmentProductListBinding, ProductList
     private val list = mutableListOf<ProductUI>()
     private lateinit var productListAdapter: ProductListAdapter
 
-    override val inflate: (inflater: LayoutInflater, container: ViewGroup?, attachToRoot: Boolean) -> FragmentProductListBinding =
-        FragmentProductListBinding::inflate
+    override val inflate: (
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        attachToRoot: Boolean
+    ) -> FragmentProductListBinding = FragmentProductListBinding::inflate
 
     override fun init() {
         presenter.onInit(requireArgument(QUERY_EXTRA))

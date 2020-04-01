@@ -21,14 +21,14 @@ fun Product.toProductUI() = ProductUI(
     availableQuantityTextRes = when {
         availableQuantity == 0 -> R.string.product_detail_available_quantity_zero
         availableQuantity == 1 -> R.string.product_detail_available_quantity_last
-        availableQuantity <= 5 -> R.string.product_detail_available_quantity_number
+        availableQuantity <= START_OF_MORE_QUANTITY -> R.string.product_detail_available_quantity_number
         else -> R.string.product_detail_available_quantity_more_than
     },
     soldQuantity = soldQuantity,
     soldQuantityTextRes = when {
         soldQuantity == 0 -> R.string.product_detail_sold_quantity_zero
         soldQuantity == 1 -> R.string.product_detail_sold_quantity_one
-        soldQuantity <= 5 -> R.string.product_detail_sold_quantity_plural
+        soldQuantity <= START_OF_MORE_QUANTITY -> R.string.product_detail_sold_quantity_plural
         else -> R.string.product_detail_sold_quantity_more_than
     },
     sellerStatus = when (seller.powerSellerStatus) {
@@ -39,3 +39,5 @@ fun Product.toProductUI() = ProductUI(
     address = "${address.cityName}, ${address.stateName}",
     attributes = attributes.map { it.toProductAttributeUI() }
 )
+
+private const val START_OF_MORE_QUANTITY = 5
