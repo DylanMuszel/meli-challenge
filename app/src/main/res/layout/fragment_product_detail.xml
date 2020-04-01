@@ -170,7 +170,6 @@
                 android:id="@+id/seller_status_icon"
                 android:layout_width="@dimen/product_detail_icon_size"
                 android:layout_height="@dimen/product_detail_icon_size"
-                android:layout_marginBottom="@dimen/spacing_big_extra"
                 android:src="@drawable/ic_star"
                 app:layout_constraintBottom_toBottomOf="@id/seller_status_text"
                 app:layout_constraintStart_toStartOf="@id/guideline_start"
@@ -183,7 +182,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_medium_more"
                 android:layout_marginTop="@dimen/spacing_large_extra"
-                android:paddingBottom="@dimen/spacing_big_extra"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@id/guideline_end"
                 app:layout_constraintStart_toEndOf="@id/seller_status_icon"
@@ -203,6 +201,7 @@
                 android:id="@+id/attributes_separator"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/product_detail_separator_height"
+                android:layout_marginTop="@dimen/spacing_big_extra"
                 android:background="@drawable/ic_separator"
                 app:layout_constraintTop_toBottomOf="@id/seller_status_text" />
 
@@ -224,12 +223,16 @@
                 android:layout_marginTop="@dimen/spacing_large_extra"
                 android:horizontalSpacing="@dimen/spacing_large"
                 android:numColumns="2"
-                android:paddingBottom="@dimen/spacing_big_extra"
                 android:stretchMode="columnWidth"
                 android:verticalSpacing="@dimen/spacing_large"
                 app:layout_constraintEnd_toEndOf="@id/guideline_end"
                 app:layout_constraintStart_toStartOf="@id/guideline_start"
                 app:layout_constraintTop_toBottomOf="@id/attributes_title" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_big_extra"
+                app:layout_constraintTop_toBottomOf="@id/attributes_grid" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
