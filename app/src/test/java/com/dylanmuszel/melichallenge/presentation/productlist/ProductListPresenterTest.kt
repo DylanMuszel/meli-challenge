@@ -1,4 +1,4 @@
-package com.dylanmuszel.melichallenge.presentation
+package com.dylanmuszel.melichallenge.presentation.productlist
 
 import arrow.core.Either
 import com.dylanmuszel.core.fp.NetworkConnectionFailure
@@ -7,8 +7,6 @@ import com.dylanmuszel.domain.*
 import com.dylanmuszel.melichallenge.CoroutineTestRule
 import com.dylanmuszel.melichallenge.framework.core.Logger
 import com.dylanmuszel.melichallenge.presentation.model.mapper.toProductUI
-import com.dylanmuszel.melichallenge.presentation.productlist.ProductListPresenter
-import com.dylanmuszel.melichallenge.presentation.productlist.ProductListView
 import com.dylanmuszel.usecases.product.SearchProductsUseCase
 import com.nhaarman.mockitokotlin2.eq
 import com.nhaarman.mockitokotlin2.mock
