@@ -1,0 +1,86 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply from: '../ktlint.gradle'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+    defaultConfig {
+        applicationId "com.dylanmuszel.melichallenge"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    viewBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation libraries.kotlin.core
+    implementation libraries.kotlin.coroutines
+    implementation libraries.arrow.core
+
+    implementation libraries.androidx.appCompat
+    implementation libraries.androidx.constraintLayout
+    implementation libraries.androidx.recyclerView
+    implementation libraries.androidx.ktx.core
+    implementation libraries.androidx.ktx.fragment
+    implementation libraries.material
+    implementation libraries.fresco
+
+    implementation libraries.gson
+
+    implementation libraries.dagger.core
+    implementation libraries.dagger.androidSupport
+    kapt libraries.dagger.kaptCore
+    kapt libraries.dagger.kaptAndroidProcessor
+
+    implementation libraries.okHttp.interceptor
+    implementation libraries.retrofit.core
+    implementation libraries.retrofit.converterGson
+
+    implementation libraries.leakCanary
+
+    implementation project(':core')
+    implementation project(':usecases')
+    implementation project(':data')
+    implementation project(':entities')
+
+    testImplementation testingLibraries.kotlin.coroutines
+    testImplementation testingLibraries.androidx.core
+    testImplementation testingLibraries.junit
+    testImplementation testingLibraries.mockito.kotlin
+
+    androidTestImplementation testingLibraries.androidx.runner
+    androidTestImplementation testingLibraries.androidx.rules
+    debugImplementation testingLibraries.androidx.fragment
+    androidTestImplementation testingLibraries.espresso
+    androidTestImplementation testingLibraries.junit
+    androidTestImplementation testingLibraries.hamcrest
+}

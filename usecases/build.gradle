@@ -1,0 +1,28 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
+apply from: '../ktlint.gradle'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation libraries.kotlin.core
+    implementation libraries.kotlin.coroutines
+    implementation libraries.arrow.core
+
+    implementation libraries.dagger.core
+    implementation libraries.dagger.androidSupport
+    kapt libraries.dagger.kaptCore
+    kapt libraries.dagger.kaptAndroidProcessor
+
+    implementation project(':core')
+    implementation project(':data')
+    implementation project(':entities')
+
+    testImplementation testingLibraries.androidx.core
+    testImplementation testingLibraries.junit
+    testImplementation testingLibraries.mockito.kotlin
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"
